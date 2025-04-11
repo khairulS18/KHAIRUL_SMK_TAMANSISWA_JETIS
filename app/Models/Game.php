@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Prompts\Themes\Contracts\Scrolling;
 
 class Game extends Model
 {
@@ -17,4 +18,5 @@ class Game extends Model
     public function user() {
         return $this->belongsTo(User::class, 'created_by', 'id');
     }
+
 }

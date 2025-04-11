@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Score;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -12,17 +13,26 @@ class GameController extends Controller
      */
     public function index()
     {
-        return view('development-portal.index');
+        if (condition) {
+            # code...
+        }
+
+        $query = Game::query()->with('user');
+    
+
+        $data['games'] = $query->get();
+
+        return view('gaming-portal.discover-games', $data);
         //
     }
 
-    public function ListGames() {
-        $query = Game::query()->with('user');
+    // public function ListGames() {
+    //     $query = Game::query()->with('user');
 
-        $data['games'] = $query->paginate(10);
+    //     $data['games'] = $query->paginate(10);
 
-        return view('development-portal.games', $data);
-    }
+    //     return view('development-portal.games', $data);
+    // }
 
     /**
      * Show the form for creating a new resource.

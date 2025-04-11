@@ -49,7 +49,9 @@ Route::prefix('/dashboard-admin')->group(function () {
 
 
 
-Route::prefix('/')
+Route::prefix('/gaming-portal')->group(function() {
+    Route::get('', [GameController::class, 'index'])->name('pages.game.index');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('template-gui.administrator-portal.index');
