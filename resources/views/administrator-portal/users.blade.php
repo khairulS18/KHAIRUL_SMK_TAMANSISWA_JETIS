@@ -11,28 +11,13 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top bg-primary navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Administrator Portal</a>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-                <li><a href="admins.html" class="nav-link px-2 text-white">List Admins</a></li>
-                <li><a href="users.html" class="nav-link px-2 text-white">List Users</a></li>
-                <li class="nav-item">
-                    <a class="nav-link active bg-dark" href="#">Welcome, Administrator</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../signin.html" class="btn bg-white text-primary ms-4">Sign Out</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    @include('components.navbar')
 
     <main>
 
         <div class="hero py-5 bg-light">
             <div class="container">
-                <a href="{{ route('admin.user.form') }}" class="btn btn-primary">
+                <a href="{{ route('pages.user.form') }}" class="btn btn-primary">
                     Add User
                 </a>
             </div>
@@ -80,8 +65,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <a href="{{ route('admin.user.edit', ['id' => $item->id]) }}" class="btn btn-sm btn-secondary">Update</a>
-                                    <form action="{{ route('admin.user.destroy', ['id' => $item->id]) }}" method="post">
+                                    <a href="{{ route('pages.user.edit', ['id' => $item->id]) }}" class="btn btn-sm btn-secondary">Update</a>
+                                    <form action="{{ route('pages.user.destroy', ['id' => $item->id]) }}" method="post">
                                         @method('DELETE')
                                         <button onclick="return confirm('Are you sure to delete this user?')" class="btn btn-sm btn-danger">Delete</button>
                                     </form>

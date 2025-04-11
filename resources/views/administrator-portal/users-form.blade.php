@@ -33,10 +33,10 @@
                 <div class="row justify-content-center ">
                     <div class="col-lg-5 col-md-6">
                         @if (isset($user))
-                            <form action="{{ route('admin.user.edit.update', ['id' => $user->id]) }}" method="POST">
+                            <form action="{{ route('pages.user.edit.update', ['id' => $user->id]) }}" method="POST">
                               @method('PUT')
                             @else
-                            <form action="{{ route('admin.user.form.store') }}" method="POST">
+                            <form action="{{ route('pages.user.form.store') }}" method="POST">
                         @endif
                         @csrf
                         <div class="form-item card card-default my-4">
@@ -75,7 +75,7 @@
                                 <button class="btn btn-primary w-100" type="submit">Submit</button>
                             </div>
                             <div class="col">
-                                <a href="{{ route('admin.user') }}" class="btn btn-danger w-100">Back</a>
+                                <a href="{{ route('pages.user') }}" class="btn btn-danger w-100">Back</a>
                             </div>
                         </div>
                         </form>

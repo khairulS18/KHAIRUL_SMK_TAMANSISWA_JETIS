@@ -34,9 +34,9 @@ class UserController extends Controller
         ];
 
         if (User::create($data)) {
-            return redirect()->route('admin.user')->with('success', 'User Has Been Add!');
+            return redirect()->route('pages.user')->with('success', 'User Has Been Add!');
         } else {
-            return redirect()->route('admin.user')->with('error', 'User Failed To Add!');
+            return redirect()->route('pages.user')->with('error', 'User Failed To Add!');
         }
     }
 
@@ -65,9 +65,9 @@ class UserController extends Controller
         ];
 
         if ($user->update($data)) {
-            return redirect()->route('admin.user')->with('success', 'User Has Been Add!');
+            return redirect()->route('pages.user')->with('success', 'User Has Been Add!');
         } else {
-            return redirect()->route('admin.user')->with('error', 'User Failed To Add!');
+            return redirect()->route('pages.user')->with('error', 'User Failed To Add!');
         }
     }
 
