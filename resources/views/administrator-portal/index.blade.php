@@ -3,22 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Gaming Portal</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Dashboard - Administrator Portal</title>
+    <link rel="stylesheet" href="{{ asset("template-gui/css/bootstrap.css") }}">
+    <link rel="stylesheet" href="{{ asset("template-gui/css/style.css") }}">
   </head>
   <body>
    
    <nav class="navbar navbar-expand-lg sticky-top bg-primary navbar-dark">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Gaming Portal</a>
+        <a class="navbar-brand" href="index.html">Administrator Portal</a>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           
-         <li><a href="discover-games.html" class="nav-link px-2 text-white">Discover Games</a></li>
-         <li><a href="manage-games.html" class="nav-link px-2 text-white">Manage Games</a></li>
-         <li><a href="profile.html" class="nav-link px-2 text-white">User Profile</a></li>
+         <li><a href="admins.html" class="nav-link px-2 text-white">List Admins</a></li>
+         <li><a href="{{ route('admin.user') }}" class="nav-link px-2 text-white">List Users</a></li>
          <li class="nav-item">
-           <a class="nav-link active bg-dark" href="#">Welcome, Player1</a>
+           <a class="nav-link active bg-dark" href="#">Welcome, Administrator</a>
          </li> 
          <li class="nav-item">
           <a href="../signin.html" class="btn bg-white text-primary ms-4">Sign Out</a>
@@ -46,7 +45,7 @@
     </main>
    
 
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/popper.js"></script>
+    <script src="{{ asset("template-gui/js/bootstrap.js") }}"></script>
+    <script src="{{ asset("template-gui/js/popper.js") }}"></script>
   </body>
 </html>
