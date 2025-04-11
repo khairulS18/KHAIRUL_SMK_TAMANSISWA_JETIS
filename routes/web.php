@@ -47,12 +47,9 @@ Route::prefix('/dashboard-admin')->group(function () {
     Route::delete('/list-user/delete/{id}', [UserController::class, 'destroy'])->name('pages.user.destroy');
 });
 
-Route::prefix('/dashboard-develompent')->group(function () {
-    Route::get('', [GameController::class, 'index'])->name('pages.dev');
-    Route::get('/list-game', [GameController::class, 'ListGames'])->name('pages.dev.list');
-    Route::get('/list-game/form', [GameController::class, 'create'])->name('pages.dev.form');
-    Route::post('/list-game/form/store', [GameController::class, 'store'])->name('pages.dev.form.store');
-});
+
+
+Route::prefix('/')
 
 // Route::get('/dashboard', function () {
 //     return view('template-gui.administrator-portal.index');
