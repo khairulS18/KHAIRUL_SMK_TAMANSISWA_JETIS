@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Models\Administrator;
@@ -21,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('/dashboard')->group(function () {
+Route::prefix('/dashboard-admin')->group(function () {
     Route::get('/', function () {
         return view('administrator-portal.index');
     })->name('pages.dashboard');
@@ -44,6 +45,13 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/list-user/edit/{id}', [UserController::class, 'edit'])->name('pages.user.edit');
     Route::put('/list-user/edit/update/{id}', [UserController::class, 'update'])->name('pages.user.edit.update');
     Route::delete('/list-user/delete/{id}', [UserController::class, 'destroy'])->name('pages.user.destroy');
+});
+
+Route::prefix('/dashboard-develompent')->group(function () {
+    Route::get('', [GameController::class, 'index'])->name('pages.dev');
+    Route::get('/list-game', [GameController::class, 'ListGames'])->name('pages.dev.list');
+    Route::get('/list-game/form', [GameController::class, 'create'])->name('pages.dev.form');
+    Route::post('/list-game/form/store', [GameController::class, 'store'])->name('pages.dev.form.store');
 });
 
 // Route::get('/dashboard', function () {
