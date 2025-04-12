@@ -39,8 +39,8 @@
 
                             <div class="btn-group" role="group">
                                 <form action="" method="get">
-                                    <button type="button" name="asc" class="btn btn-secondary">ASC</button>
-                                    <button type="button" name="desc" class="btn btn-outline-primary">DESC</button>
+                                    <button type="submit" name="asc" class="btn btn-secondary">ASC</button>
+                                    <button type="submit" name="desc" class="btn btn-outline-primary">DESC</button>
                                 </form>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                             </h5>
                                             <div>{{ $item->description }}</div>
                                             <hr class="mt-1 mb-1">
-                                                <div class="text-muted">#scores submitted :</div>
+                                                <div class="text-muted">#scores submitted : 1000</div>
                                         </div>
                                     </div>
                                 </div>

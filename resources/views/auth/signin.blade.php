@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign In - Gaming Portal</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="{{ asset("template-gui/css/bootstrap.css") }}">
+    <link rel="stylesheet" href="{{ asset("template-gui/css/style.css") }}">
   </head>
   <body>
    
@@ -19,7 +19,8 @@
                      <div class="card-body">
                         <h3 class="mb-3">Sign In</h3>
                         
-                        <form action="Administrator Portal/index.html"> 
+                        <form action="{{ route('singin.store') }}" method="post">
+                           @csrf 
                            <!-- s: input -->
                            <div class="form-group my-3">
                               <label for="username" class="mb-1 text-muted">Username</label>
@@ -37,7 +38,7 @@
                                  <button type="submit" class="btn btn-primary w-100">Sign In</button>
                               </div>
                               <div class="col">
-                                 <a href="Gaming Portal/signup.html" class="btn btn-danger w-100">Sign up</a>
+                                 <a href="{{ route('signup.index') }}" class="btn btn-danger w-100">Sign up</a>
                               </div>
                               
                            </div>
@@ -51,7 +52,7 @@
       </section>
    </main>
 
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/popper.js"></script>
+    <script src="{{ asset("template-gui/js/bootstrap.js") }}"></script>
+    <script src="{{ asset("template-gui/js/popper.js") }}"></script>
   </body>
 </html>

@@ -48,7 +48,11 @@ class User extends Authenticatable
         return $this->belongsTo(Game::class, 'created_by', 'id');
     }
 
+    public function gameversions() {
+        return $this->hasMany(Gameversion::class);
+        }
+
     public function scores() {
-        return $this->belongsTo(Score::class, 'user_id', 'id');
+        return $this->belongsTo(Score::class);
     }
 }

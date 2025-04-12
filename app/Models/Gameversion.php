@@ -16,4 +16,8 @@ class Gameversion extends Model
     public function scores() {
         return $this->belongsTo(Score::class, 'game_version_id', 'id');
     }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

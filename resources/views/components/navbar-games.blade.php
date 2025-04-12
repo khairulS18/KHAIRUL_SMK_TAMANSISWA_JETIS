@@ -5,11 +5,14 @@
      <li><a href="manage-games.html" class="nav-link px-2 text-white">Manage Games</a></li>
      <li><a href="profile.html" class="nav-link px-2 text-white">User Profile</a></li>
      <li class="nav-item">
-       <a class="nav-link active bg-dark" href="#">Welcome, Player1</a>
+       <a class="nav-link active bg-dark" href="#">Welcome, </a>
      </li> 
      <li class="nav-item">
-      <a href="../signin.html" class="btn bg-white text-primary ms-4">Sign Out</a>
+      <a href="{{ route('singin.index') }}" class="btn bg-white text-primary ms-4">Sign In</a>
      </li>
+     {{-- <li class="nav-item">
+      <a href="../signin.html" class="btn bg-white text-primary ms-4">Sign Out</a>
+     </li> --}}
    </ul> 
   </div>
 </nav>

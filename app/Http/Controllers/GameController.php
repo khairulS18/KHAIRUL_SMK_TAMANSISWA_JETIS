@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Score;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class GameController extends Controller
 {
@@ -13,14 +16,18 @@ class GameController extends Controller
      */
     public function index()
     {
-        if (condition) {
-            # code...
+        if(Session::has('loginId')){
+            $data = User::where('id','=',Session::get('loginId'))->first();
         }
+        
 
-        $query = Game::query()->with('user');
-    
+        $data['games'] = Game::get();
+        $data['scores'] = Score::withCount('gameversion')->get();
 
-        $data['games'] = $query->get();
+        // dd($data['scores']);
+
+        // $data['scores'] = $users->scores()->get(); 
+        // $data['games'] = $query->get();
 
         return view('gaming-portal.discover-games', $data);
         //

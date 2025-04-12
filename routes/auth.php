@@ -10,10 +10,15 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\SigninController;
+use App\Http\Controllers\SignupController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
     Route::get('sign-in', [SigninController::class, 'index'])->name('singin.index');
+    Route::post('sign-in/store', [SigninController::class, 'store'])->name('singin.store');
+
+    Route::get('sign-up', [SignupController::class, 'index'])->name('signup.index');
+    Route::post('sign-up/store', [SignupController::class, 'store'])->name('signup.store');
     // Route::get('register', [RegisteredUserController::class, 'create'])
     //             ->name('register');
 
