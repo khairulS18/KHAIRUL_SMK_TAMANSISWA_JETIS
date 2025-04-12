@@ -56,6 +56,8 @@ Route::prefix('/gaming-portal')->group(function() {
         Route::get('', [GameController::class, 'ManageGame'])->name('pages.manage-game.index');
         Route::get('/form', [GameController::class, 'create'])->name('pages.manage-game.form');
         Route::post('/form/store', [GameController::class, 'store'])->name('pages.manage-game.form.store');
+        Route::get('/detail/{id}', [GameController::class, 'show'])->name('pages.manage-game.show');
+        Route::delete('/delete{id}', [GameController::class, 'destroy'])->name('pages.manage-game.destroy');
     });
 });
 

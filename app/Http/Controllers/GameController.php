@@ -108,8 +108,13 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Game $game)
+    public function show($id)
     {
+        $data['game'] = Game::where('id', $id)->first();
+
+        dd($data);
+
+        return view('gaming-portal.detail-games');
         //
     }
 
@@ -132,8 +137,13 @@ class GameController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Game $game)
+    public function destroy($id)
     {
+        $game = Game::where('id', $id)->first();
+
+        $game->delete();
+
+        return redirect()->route('pages.manage-game.index');
         //
     }
 }

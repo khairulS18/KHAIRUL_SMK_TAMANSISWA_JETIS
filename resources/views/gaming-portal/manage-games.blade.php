@@ -43,10 +43,16 @@
                                         style="width: 100%"></td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->description }}</td>
-                                <td>
-                                    <a href="detail-games.html" class="btn btn-sm btn-primary">Detail</a>
-                                    <a href="manage-games-form-update.html" class="btn btn-sm btn-secondary">Update</a>
-                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                <td ">
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('pages.manage-game.show', ['id' => $item->id]) }}" class="btn btn-sm btn-primary">Detail</a>
+                                        <a href="manage-games-form-update.html" class="btn btn-sm btn-secondary">Update</a>
+                                        <form action="{{ route('pages.manage-game.destroy', ['id' => $item->id]) }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" onclick="return confirm('Are you sure delete this game?')" class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
