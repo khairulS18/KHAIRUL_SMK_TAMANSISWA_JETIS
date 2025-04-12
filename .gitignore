@@ -4,6 +4,7 @@
 /public/hot
 /public/storage
 /public/template-gui
+/public/game-images
 /storage/*.key
 /vendor
 .env

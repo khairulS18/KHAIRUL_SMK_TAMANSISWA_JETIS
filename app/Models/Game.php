@@ -12,7 +12,7 @@ class Game extends Model
     protected $table = 'games';
     protected $fillable = [
         'title', 'slug', 'description',
-        'created_by'
+        'created_by', 'image'
     ];
 
     public function user() {

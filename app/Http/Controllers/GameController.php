@@ -7,7 +7,9 @@ use App\Models\Score;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class GameController extends Controller
 {
@@ -44,9 +46,18 @@ class GameController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    public function ManageGame() {
+        $data['games'] = Game::get();
+
+        // dd($data);
+
+        return view('gaming-portal.manage-games', $data);
+    }
+
     public function create()
     {
-        return view('development-portal.games-form');
+        return view('gaming-portal.manage-games-form');
         //
     }
 
@@ -55,6 +66,42 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
+        // $request->validate([
+        //     'title' => 'required|unique:games',
+        //     'description' => 'required',
+        //     'thumbnail' => 'required|image'
+        // ], [
+        //     'title.required' => 'Please filled title!',
+        //     'title.unique' => 'Title cant same!',
+        //     'description.required' => 'Please filled description!',
+        //     'thumbnail.required' => 'Please filled thumbnail!',
+        //     'thumbnail.image' => 'Thumbnail only image format!'
+        // ]);
+
+        $pathThumbnail = public_path() . '/games-images';
+        if (!File::exists($pathThumbnail)) {
+            File::isDirectory($pathThumbnail) or File::makeDirectory($pathThumbnail, 0777, true, true);
+        }
+
+        if ($request->hasFile('image')) {
+            $file = $request->thumbnail;
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move($pathThumbnail, $fileName);
+        }
+
+        $data = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'slug' => Str::slug($request->title),
+            'created_by' => '3', 
+            'image' => $pathThumbnail,
+        ];
+
+        if (Game::create($data)) {
+            return redirect()->route('pages.manage-game.index')->with('success', 'Game Has Been Add!');
+        } else {
+            return redirect()->route('pages.manage-game.index')->with('error', 'Game Failed To Add!');
+        }
         //
     }
 

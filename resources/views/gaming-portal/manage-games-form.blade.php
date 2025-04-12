@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Manage Games - Gaming Portal</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{ asset("template-gui/css/bootstrap.css") }}">
+    <link rel="stylesheet" href="{{ asset("template-gui/css/style.css") }}">
   </head>
   <body> 
 
@@ -24,7 +24,14 @@
             <div class="row justify-content-center ">
                <div class="col-lg-5 col-md-6"> 
                   
-                  <form>
+                  @foreach ($errors as $err)
+                     <div class="alert alert-danger fw-bold h-3">
+                        <span>{{ $err }}</span>
+                     </div>
+                  @endforeach
+
+                  <form method="post" action="{{ route('pages.manage-game.form.store') }}">
+                     @csrf
                      <div class="form-item card card-default my-4">
                         <div class="card-body">
                            <div class="form-group">
@@ -60,10 +67,10 @@
    
                      <div class="mt-4 row">
                         <div class="col">
-                           <button class="btn btn-primary w-100">Submit</button>
+                           <button type="submit" class="btn btn-primary w-100">Submit</button>
                         </div>
                         <div class="col">
-                           <a href="manage-games.html" class="btn btn-danger w-100">Back</a>
+                           <a href="{{ route('pages.manage-game.index') }}" class="btn btn-danger w-100">Back</a>
                         </div>
                      </div>
                   </form>
@@ -76,7 +83,7 @@
     </main>
    
 
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/popper.js"></script>
+    <script src="{{ asset("template-gui/js/bootstrap.js") }}"></script>
+    <script src="{{ asset("template-gui/js/popper.js") }}"></script>
   </body>
 </html>

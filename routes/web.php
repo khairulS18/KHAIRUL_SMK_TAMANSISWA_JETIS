@@ -51,7 +51,14 @@ Route::prefix('/dashboard-admin')->group(function () {
 
 Route::prefix('/gaming-portal')->group(function() {
     Route::get('', [GameController::class, 'index'])->name('pages.game.index');
+
+    Route::prefix('/manage-games')->group(function () {
+        Route::get('', [GameController::class, 'ManageGame'])->name('pages.manage-game.index');
+        Route::get('/form', [GameController::class, 'create'])->name('pages.manage-game.form');
+        Route::post('/form/store', [GameController::class, 'store'])->name('pages.manage-game.form.store');
+    });
 });
+
 
 // Route::get('/dashboard', function () {
 //     return view('template-gui.administrator-portal.index');
